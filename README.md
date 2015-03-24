@@ -18,7 +18,7 @@ MIGRATION PROCEDURE
 	- scripts/rperms.js -->logs/rperms.logs
 	- scripts/horizon_admins.js -->logs/horizon_admins.logs
 	- scripts/keystone_users.js -->logs/keystone_users.logs  -- partial debug mode available
-	- scripts/service_catalogue.js
+	- scripts/service_catalogue.js  -- not debug mode available
 9. Copy fi-ware-idm/shared/system remote folder to horizon server	
 10. In the horizon server create media folder
 11. In the horizon server run dist/shell scripts

@@ -1,0 +1,4 @@
+{
+"admin1": {"password": "pass1", "isAdmin": true},
+"user2": {"password": "pass2"}
+}

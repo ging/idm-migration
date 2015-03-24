@@ -1,0 +1,13 @@
+[
+    {"endpoints":
+        [
+        {"adminURL": "http://host/v2/$(tenant_id)s",
+        "region": "Spain",
+        "internalURL": "http://host/v2/$(tenant_id)s",
+        "publicURL": "http://host/v2/$(tenant_id)s"}
+        ],
+        "endpoints_links": [],
+        "type": "compute",
+        "name": "nova"
+    }
+]

@@ -1,7 +1,7 @@
 var migration_config = {};
 
 migration_config.keystone_host = 'localhost';
-migration_config.keysotne_port = 5000;
+migration_config.keystone_port = 5000;
 migration_config.keystone_token = '';
 
 // generated during the database population

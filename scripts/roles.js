@@ -15,7 +15,7 @@ var sendReq = function (u) {
 
 	if (u >= db.roles.length) return;
 
-	if (!db.roles[u].is_internal) {
+	if (!db.roles[u].is_internal && db.roles[u].application_id !== undefined) {
 
 		db.roles[u].id = db.roles[u].id + '';
 		db.roles[u].application_id = db.roles[u].application_id + '';

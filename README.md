@@ -2,7 +2,7 @@ MIGRATION PROCEDURE
 
 1. Clone migration_config.js.template file to migration_config.js
 2. Clone data_template folder to data
-3. Create dist folder
+3. Create dist folder (and shell folder inside)
 4. Configure migration_config.js
 5. Fill data/keystone_users.json and data/service_catalogue.json
 6. Copy fi-ware-idm/current/migrationdata.json remote file to data/ local folder

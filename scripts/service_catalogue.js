@@ -30,7 +30,7 @@ var sendServs = function (u) {
 	client.sendData("http", options, body, undefined, function (status, resp) {
 		var id = JSON.parse(resp).service.id;
 		serv[u].id = id;
-		console.log('OK ', status, 'resp ', body);
+		console.log('OK ', status, 'resp ', resp);
 
 		if (u < serv.length - 1) {
 			sendServs(u+1);
@@ -86,7 +86,7 @@ var sendEndp = function (s, e, type) {
 
 	client.sendData("http", options2, body, undefined, function (status, resp) {
 
-		console.log('OK ', status, 'resp ', resp);
+		console.log('OK ', status, 'resp ', body);
 
 		if (e < serv[s].endpoints.length - 1) {
 			sendEndp(s, e + 1, type);

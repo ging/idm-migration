@@ -58,7 +58,7 @@ var create_project = function (name) {
 			create_users(0);
 		}
 	} else {
-		client.sendData("http", options, body, undefined, function (status, resp) {
+		client.sendData("http", options, project, undefined, function (status, resp) {
 			console.log('OK ', status, 'user ', db.organizations[u].name, db.organizations[u].id);
 			if (name === 'admins') {
 				admins_project_id = id;

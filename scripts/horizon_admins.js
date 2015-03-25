@@ -31,7 +31,7 @@ var create_roles = function (u) {
 
 	var organization_id = pad(admins[u].user_id, 32);
 
-	options.path = '/v3/OS-ROLES/users/'+ admins[u].user_id + '/organizations/' + organization_id + '/applications/' + migration_config.idm_organization_id + '/roles/' + migration_config.idm_provider_role_id;
+	options.path = '/v3/OS-ROLES/users/'+ admins[u].user_id + '/organizations/' + organization_id + '/applications/' + migration_config.idm_application_id + '/roles/' + migration_config.idm_provider_role_id;
 
 	if (migration_config.debug) {
 		console.log(options.path);

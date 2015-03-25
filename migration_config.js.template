@@ -5,7 +5,7 @@ migration_config.keystone_port = 5000;
 migration_config.keystone_token = '';
 
 // generated during the database population
-migration_config.idm_organization_id = '';
+migration_config.idm_application_id = '';
 migration_config.idm_provider_role_id = '';
 
 migration_config.keystone_admin_role_id = '';

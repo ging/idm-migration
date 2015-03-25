@@ -58,8 +58,8 @@ var create_project = function (name) {
 			create_users(0);
 		}
 	} else {
-		client.sendData("http", options, project, undefined, function (status, resp) {
-			console.log('OK ', status, 'user ', db.organizations[u].name, db.organizations[u].id);
+		client.sendData("http", options1, project, undefined, function (status, resp) {
+			console.log('OK ', status, 'project ', project);
 			if (name === 'admins') {
 				admins_project_id = id;
 				create_project('services');
@@ -68,7 +68,7 @@ var create_project = function (name) {
 				create_users(0);
 			}
 		}, function (status, resp) {
-			console.log('ERROR: ', resp, status, 'user ', db.organizations[u].name, db.organizations[u].id);
+			console.log('ERROR: ', resp, status, 'project ', project);
 			if (name === 'admins') {
 				create_project('services');
 			} else {

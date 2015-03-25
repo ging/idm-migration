@@ -1,5 +1,5 @@
 #!/bin/bash
-
+node scripts/migrate_json.js -->logs/migrate_json.log
 node scripts/users.js -->logs/users.log
 node scripts/orgs.js -->logs/orgs.log
 node scripts/apps.js -->logs/apps.log

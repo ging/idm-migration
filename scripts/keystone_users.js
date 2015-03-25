@@ -84,8 +84,6 @@ var create_users = function (u) {
 
 	var ui = keys[u];
 
-	console.log(ui, u);
-
 	var body = {user: {
 		name: ui,
 		password: users[ui].password,

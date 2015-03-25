@@ -86,7 +86,7 @@ var sendEndp = function (s, e, type) {
 
 	client.sendData("http", options2, body, undefined, function (status, resp) {
 
-		console.log('OK ', status, 'resp ', body);
+		console.log('OK ', status, 'resp ', resp);
 
 		if (e < serv[s].endpoints.length - 1) {
 			sendEndp(s, e + 1, type);

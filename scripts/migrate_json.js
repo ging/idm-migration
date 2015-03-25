@@ -32,11 +32,17 @@ for (var p in db.permissions) {
 	if (db.permissions[p].application_id) {
 		db.permissions[p].application_id = app_map[db.permissions[p].application_id];
 	}
+	if (db.permissions[p].is_internal) {
+		console.log('INTERNAL PERM', db.permissions[p]);
+	}
 }
 
 for (var p in db.roles) {
 	if (db.roles[p].application_id) {
 		db.roles[p].application_id = app_map[db.roles[p].application_id];
+	}
+	if (db.roles[p].is_internal) {
+		console.log('INTERNAL ROLE', db.roles[p]);
 	}
 }
 

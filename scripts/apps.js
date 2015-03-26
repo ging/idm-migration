@@ -55,7 +55,7 @@ var sendReq = function (u) {
 	db.applications[u].client_type = 'confidential';
 	db.applications[u].grant_type = 'authorization_code';
 	db.applications[u].response_type = 'code';
-	db.applications[u].allowed_scopes = ['all_info'];
+	db.applications[u].scopes = ['all_info'];
 
 	delete db.applications[u].callback_url;
 	delete db.applications[u].oauth2_secret;

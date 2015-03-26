@@ -13,6 +13,15 @@ var pad = function(number, length) {
 
 };
 
+var options = {
+    host: migration_config.keystone_host,
+    port: migration_config.keystone_port,
+    path: '/v3/users',
+    method: 'POST',
+    headers: {	'X-Auth-Token': migration_config.keystone_token, 
+				'content-type': 'application/json'}
+};
+
 var options1 = {
     host: migration_config.keystone_host,
     port: migration_config.keystone_port,
@@ -22,14 +31,6 @@ var options1 = {
 				'content-type': 'application/json'}
 };
 
-var options = {
-    host: migration_config.keystone_host,
-    port: migration_config.keystone_port,
-    path: '/v3/users',
-    method: 'POST',
-    headers: {	'X-Auth-Token': migration_config.keystone_token, 
-				'content-type': 'application/json'}
-};
 
 var options2 = {
     host: migration_config.keystone_host,
@@ -40,7 +41,34 @@ var options2 = {
 				'content-type': 'application/json'}
 };
 
-var admins_project_id, services_project_id;
+var options3 = {
+    host: migration_config.keystone_host,
+    port: migration_config.keystone_port,
+    path: '/v3/roles',
+    method: 'GET',
+    headers: {	'X-Auth-Token': migration_config.keystone_token, 
+				'content-type': 'application/json'}
+};
+
+var admins_project_id, services_project_id, keystone_admin_role_id, keystone_member_role_id;
+
+var getRoles = function () {
+
+	client.sendData("http", options3, undefined, undefined, function (status, resp) {
+		console.log('OK ', status, 'roles ', resp);
+		var roles = JSON.parse(resp).roles;
+
+		for (var r in roles) {
+			if (roles[r].name === 'admin') keystone_admin_role_id = roles[r].id;
+			if (roles[r].name === 'member') keystone_member_role_id = roles[r].id;
+		}
+		create_project('admins');
+	}, function (status, resp) {
+		console.log('ERROR: ', resp, status);
+		create_project('admins');
+
+	});
+}
 
 var create_project = function (name) {
 
@@ -123,9 +151,9 @@ var create_roles = function (u) {
 	var path;
 
 	if (users[ui].isAdmin) {
-		path = '/v3/projects/' + admins_project_id + '/users/' + users[ui].id + '/roles/' + migration_config.keystone_admin_role_id; 
+		path = '/v3/projects/' + admins_project_id + '/users/' + users[ui].id + '/roles/' + keystone_admin_role_id; 
 	} else {
-		path = '/v3/projects/' + services_project_id + '/users/' + users[ui].id + '/roles/' + migration_config.keystone_member_role_id; 
+		path = '/v3/projects/' + services_project_id + '/users/' + users[ui].id + '/roles/' + keystone_member_role_id; 
 	}
 
 	options2.path = path;
@@ -142,4 +170,4 @@ var create_roles = function (u) {
 	});
 }
 
-create_project('admins');
+getRoles();

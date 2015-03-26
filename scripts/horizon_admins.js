@@ -22,8 +22,35 @@ var options = {
 				'content-type': 'application/json'}
 };
 
+var options1 = {
+    host: migration_config.keystone_host,
+    port: migration_config.keystone_port,
+    path: '/v3/OS-OAUTH2/consumers',
+    method: 'GET',
+    headers: {	'X-Auth-Token': migration_config.keystone_token, 
+				'content-type': 'application/json'}
+};
 
 var admins = db.administrators;
+
+var idm_application_id;
+
+var getApplication = function () {
+
+	client.sendData("http", options1, undefined, undefined, function (status, resp) {
+		console.log('OK ', status, 'apps ', resp);
+		var applications = JSON.parse(resp).consumers;
+
+		for (var r in applications) {
+			if (applications[r].name === 'idm') idm_application_id = applications[r].id;
+		}
+		create_roles(0);
+	}, function (status, resp) {
+		console.log('ERROR: ', resp, status);
+		create_roles(0);
+	});
+
+}
 
 var create_roles = function (u) {
 
@@ -31,7 +58,7 @@ var create_roles = function (u) {
 
 	var organization_id = pad(admins[u].user_id, 32);
 
-	options.path = '/v3/OS-ROLES/users/'+ admins[u].user_id + '/organizations/' + organization_id + '/applications/' + migration_config.idm_application_id + '/roles/' + migration_config.idm_provider_role_id;
+	options.path = '/v3/OS-ROLES/users/'+ admins[u].user_id + '/organizations/' + organization_id + '/applications/' + idm_application_id + '/roles/' + migration_config.idm_provider_role_id;
 
 	if (migration_config.debug) {
 		console.log(options.path);
@@ -49,4 +76,4 @@ var create_roles = function (u) {
 	}
 }
 
-create_roles(0);
+getApplication();

@@ -1,8 +1,8 @@
 MIGRATION PROCEDURE
-
-1. Clone migration_config.js.template file to migration_config.js
-2. Clone data_template folder to data
-3. Create dist folder (and shell folder inside)
+ 
+1. Clone data_template folder to data
+2. Create dist folder (and shell folder inside)
+3. Clone migration_config.js.template file to migration_config.js
 4. Configure migration_config.js
 5. Fill data/keystone_users.json and data/service_catalogue.json
 6. Copy fi-ware-idm/current/migrationdata.json remote file to data/ local folder
@@ -20,5 +20,18 @@ MIGRATION PROCEDURE
 	- scripts/keystone_users.js -->logs/keystone_users.log  -- partial debug mode available
 	- scripts/service_catalogue.js -->logs/service_catalogue.log -- not debug mode available
 9. Copy fi-ware-idm/shared/system remote folder to horizon server	
-10. In the horizon server create media folder
+10. In the horizon server create media folder with the structure: 
+	media/
+		ApplicationAvatar/
+			medium/
+			small/
+			original/
+		OrganizationAvatar/
+			medium/
+			small/
+			original/
+		UserAvatar/
+			medium/
+			small/
+			original/
 11. In the horizon server run dist/shell scripts

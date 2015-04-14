@@ -62,10 +62,10 @@ var getRoles = function () {
 			if (roles[r].name === 'admin') keystone_admin_role_id = roles[r].id;
 			if (roles[r].name === 'member') keystone_member_role_id = roles[r].id;
 		}
-		create_project('admins');
+		create_project('admin');
 	}, function (status, resp) {
 		console.log('ERROR: ', resp, status);
-		create_project('admins');
+		create_project('admin');
 
 	});
 }
@@ -78,9 +78,9 @@ var create_project = function (name) {
 
 	if (migration_config.debug) {
 		console.log(project);
-		if (name === 'admins') {
+		if (name === 'admin') {
 			admins_project_id = id;
-			create_project('services');
+			create_project('service');
 		} else {
 			services_project_id = id;
 			create_users(0);
@@ -88,17 +88,17 @@ var create_project = function (name) {
 	} else {
 		client.sendData("http", options1, project, undefined, function (status, resp) {
 			console.log('OK ', status, 'project ', project);
-			if (name === 'admins') {
+			if (name === 'admin') {
 				admins_project_id = id;
-				create_project('services');
+				create_project('service');
 			} else {
 				services_project_id = id;
 				create_users(0);
 			}
 		}, function (status, resp) {
 			console.log('ERROR: ', resp, status, 'project ', project);
-			if (name === 'admins') {
-				create_project('services');
+			if (name === 'admin') {
+				create_project('service');
 			} else {
 				create_users(0);
 			}

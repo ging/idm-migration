@@ -4,6 +4,10 @@ migration_config.keystone_host = 'localhost';
 migration_config.keystone_port = 5000;
 migration_config.keystone_token = '';
 
+migration_config.purchaser_role_id = -1;
+// oauth2_client_id antiguo, id nuevo
+migration_config.cloud_app_id = -1;
+
 migration_config.debug = false;
 
 migration_config.admin_users = [];

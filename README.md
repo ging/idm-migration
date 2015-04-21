@@ -16,6 +16,7 @@ MIGRATION PROCEDURE
 	- scripts/rusers.js -->logs/rusers.log
 	- scripts/perms.js -->logs/perms.log
 	- scripts/rperms.js -->logs/rperms.log
+	- scripts/rcloud.js -->logs/rcloud.log
 	- scripts/horizon_admins.js -->logs/horizon_admins.log
 	- scripts/keystone_users.js -->logs/keystone_users.log  -- partial debug mode available
 	- scripts/service_catalogue.js -->logs/service_catalogue.log -- not debug mode available

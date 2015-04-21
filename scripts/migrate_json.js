@@ -52,6 +52,40 @@ for (var p in db.rusers) {
 	}
 }
 
+// actor_id: slug
+var users_map = {};
+
+for (var u in db.users) {
+	users_map[db.users[u].id] = db.users[u].nick;
+	db.users[u].actor_id = db.users[u].id;
+	db.users[u].cloud_project_id = pad(db.users[u].id, 32);
+	db.users[u].id = db.users[u].nick;
+	delete db.users[u].nick;
+}
+
+for (var o in db.organizations) {
+
+	for (var m in db.organizations[o].members) {
+		db.organizations[o].members[m] = users_map[db.organizations[o].members[m]];
+	}
+	for (var m in db.organizations[o].owners) {
+		db.organizations[o].owners[m] = users_map[db.organizations[o].owners[m]];
+	}
+	if (db.organizations[o].owner) db.organizations[o].owner = users_map[db.organizations[o].owner];
+}
+
+for (var a in db.applications) {
+	if (db.applications[a].owner) db.applications[a].owner = users_map[db.applications[a].owner];
+}
+
+for (var r in db.rusers) {
+	if (db.rusers[r].user_id) db.rusers[r].user_id = users_map[db.rusers[r].user_id];
+}
+
+for (var a in db.administrators) {
+	db.administrators[a].user_id = users_map[db.administrators[a].user_id];
+}
+
 var outputFilename = 'data/migrationdata_new.json';
 
 fs.writeFile(outputFilename, JSON.stringify(db), function(err) {

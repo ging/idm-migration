@@ -153,7 +153,7 @@ var create_roles = function (u) {
 	if (users[ui].isAdmin) {
 		path = '/v3/projects/' + admins_project_id + '/users/' + users[ui].id + '/roles/' + keystone_admin_role_id; 
 	} else {
-		path = '/v3/projects/' + services_project_id + '/users/' + users[ui].id + '/roles/' + keystone_member_role_id; 
+		path = '/v3/projects/' + services_project_id + '/users/' + users[ui].id + '/roles/' + keystone_admin_role_id; 
 	}
 
 	options2.path = path;

@@ -16,6 +16,22 @@ for (var o in db.organizations) {
 	db.organizations[o].id = pad(db.organizations[o].id, 32);
 }
 
+// Remove duplicated names
+for (var o in db.organizations) {
+	var name = db.organizations[o].name;
+	var c = 1;
+	for (var no in db.organizations) {
+		if (db.organizations[no].name === name && no !== o) {
+			db.organizations[no].name = name + '-' + c;
+			c++;
+		}
+	}
+	if (name === 'admin' || name === 'admins' || name === 'service' || name === 'services') {
+		db.organizations[o].name = db.organizations[o].name + '-0';
+	}
+	console.log(db.organizations[o].name);
+}
+
 for (var r in db.rusers) {
 	if (db.rusers[r].organization_id) {
 		db.rusers[r].organization_id = pad(db.rusers[r].organization_id, 32);

@@ -142,16 +142,14 @@ var delete_users = function () {
 	console.log('admins antes', admins_antes, 'admins despues', admins_despues);
 
 
+	var outputFilename = 'data/migrationdata_med.json';
 
-
-	// var outputFilename = 'data/migrationdata_med.json';
-
-	// fs.writeFile(outputFilename, JSON.stringify(db), function(err) {
-	//     if(err) {
-	//       console.log(err);
-	//     } else {
-	//       console.log("JSON saved to " + outputFilename);
-	//     }
-	// });
+	fs.writeFile(outputFilename, JSON.stringify(db), function(err) {
+	    if(err) {
+	      console.log(err);
+	    } else {
+	      console.log("JSON saved to " + outputFilename);
+	    }
+	});
 };
 

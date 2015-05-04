@@ -1,5 +1,8 @@
 var migration_config = {};
 
+migration_config.horizon_host = 'localhost';
+migration_config.horizon_port = 80;
+
 migration_config.keystone_host = 'localhost';
 migration_config.keystone_port = 5000;
 migration_config.keystone_token = '';

@@ -1,4 +1,5 @@
 #!/bin/bash
+node scripts/delete_old_users.js -->logs/delete_old_users.log
 node scripts/migrate_json.js -->logs/migrate_json.log
 node scripts/users.js -->logs/users.log
 node scripts/orgs.js -->logs/orgs.log
@@ -15,3 +16,4 @@ node scripts/rstore.js -->logs/rstore.log
 node scripts/horizon_admins.js -->logs/horizon_admins.log
 node scripts/keystone_users.js -->logs/keystone_users.log
 node scripts/service_catalogue.js -->logs/service_catalogue.log
+node scripts/user_categories.js -->logs/user_categories.log

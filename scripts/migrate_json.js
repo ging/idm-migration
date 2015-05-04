@@ -1,4 +1,4 @@
-var db = require('./../data/migrationdata.json');
+var db = require('./../data/migrationdata_med.json');
 var fs = require('fs');
 
 var pad = function(number, length) {

@@ -15,5 +15,5 @@ node scripts/rperms.js -->logs/rperms.log
 node scripts/rstore.js -->logs/rstore.log
 node scripts/horizon_admins.js -->logs/horizon_admins.log
 node scripts/keystone_users.js -->logs/keystone_users.log
-node scripts/service_catalogue.js -->logs/service_catalogue.log
+#node scripts/service_catalogue.js -->logs/service_catalogue.log
 node scripts/user_categories.js -->logs/user_categories.log

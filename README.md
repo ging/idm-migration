@@ -6,9 +6,9 @@ MIGRATION PROCEDURE
 4. Configure migration_config.js
 5. Fill data/keystone_users.json and data/service_catalogue.json
 6. Copy fi-ware-idm/current/migrationdata.json remote file to data/ local folder
-7a. Run scripts/delete_old_users.js It will generate data/migrate_json_med.js
-7b. Run scripts/migrate_json.js It will generate data/migrate_json_new.js
-8. Run scripts: 
+7. Run scripts/delete_old_users.js It will generate data/migrate_json_med.js
+8. Run scripts/migrate_json.js It will generate data/migrate_json_new.js
+9. Run scripts: 
 	- scripts/users.js -->logs/users.log
 	- scripts/orgs.js -->logs/orgs.log
 	- scripts/apps.js -->logs/apps.log
@@ -17,19 +17,17 @@ MIGRATION PROCEDURE
 	- scripts/rusers.js -->logs/rusers.log
 	- scripts/perms.js -->logs/perms.log
 	- scripts/rperms.js -->logs/rperms.log
-	----------------------------------------------------------------------
-
 	Estos dos se hacen con el script de asignar roles según user categories
 	- scripts/rcloud.js -->logs/rcloud.log
 	- scripts/rcloud_members.js -->logs/rcloud_members.log
-	----------------------------------------------------------------------
+
 	- scripts/rstore.js -->logs/rstore.log
 	- scripts/horizon_admins.js -->logs/horizon_admins.log
 	- scripts/keystone_users.js -->logs/keystone_users.log  -- partial debug mode available
 	- scripts/service_catalogue.js -->logs/service_catalogue.log -- not debug mode available
 	- scripts/user_categories.js -->logs/user_categories.log
-9. Copy fi-ware-idm/shared/system remote folder to horizon server	
-10. In the horizon server create media folder with the structure: 
+10. Copy fi-ware-idm/shared/system remote folder to horizon server	
+11. In the horizon server create media folder with the structure: 
 	media/
 		ApplicationAvatar/
 			medium/
@@ -43,4 +41,4 @@ MIGRATION PROCEDURE
 			medium/
 			small/
 			original/
-11. In the horizon server run dist/shell scripts
+12. In the horizon server run dist/shell scripts

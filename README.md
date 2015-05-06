@@ -20,7 +20,6 @@ MIGRATION PROCEDURE
 	- scripts/rstore.js -->logs/rstore.log
 	- scripts/horizon_admins.js -->logs/horizon_admins.log
 	- scripts/keystone_users.js -->logs/keystone_users.log  -- partial debug mode available
-	- scripts/service_catalogue.js -->logs/service_catalogue.log -- not debug mode available
 	- scripts/user_categories.js -->logs/user_categories.log
 10. Copy fi-ware-idm/shared/system remote folder to horizon server	
 11. In the horizon server create media folder with the structure: 

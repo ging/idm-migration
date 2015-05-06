@@ -15,7 +15,7 @@ var pad = function(number, length) {
 var options = {
     host: migration_config.horizon_host,
     port: migration_config.horizon_port,
-    path: 'TODO',
+    path: '/account_category',
     method: 'POST',
     headers: {	'X-Auth-Token': migration_config.keystone_token, 
 				'content-type': 'application/json'}
@@ -44,7 +44,7 @@ var sendReq = function (u) {
 		body.role_id = basic_role_id;
 	} else if (db.users[u].actor_id > 13878) {
 		body.role_id = community_role_id;
-		body.region_id = 'TODO';
+		body.region_id = 'Spain2';
 	}
 
 	if (migration_config.debug) {
@@ -66,7 +66,6 @@ var sendReq = function (u) {
 var trial_role_id, basic_role_id, community_role_id;
 
 client.sendData("http", options2, undefined, undefined, function (status, resp) {
-	//TODO get ids de roles
 	var roles = JSON.parse(resp).roles;
 	console.log('OK ', roles);
 	for (var r in roles) {

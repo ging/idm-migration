@@ -17,10 +17,9 @@ MIGRATION PROCEDURE
 	- scripts/rusers.js -->logs/rusers.log
 	- scripts/perms.js -->logs/perms.log
 	- scripts/rperms.js -->logs/rperms.log
-	Estos dos se hacen con el script de asignar roles según user categories
+	<!---Estos dos se hacen con el script de asignar roles según user categories
 	- scripts/rcloud.js -->logs/rcloud.log
-	- scripts/rcloud_members.js -->logs/rcloud_members.log
-
+	- scripts/rcloud_members.js -->logs/rcloud_members.log-->
 	- scripts/rstore.js -->logs/rstore.log
 	- scripts/horizon_admins.js -->logs/horizon_admins.log
 	- scripts/keystone_users.js -->logs/keystone_users.log  -- partial debug mode available
